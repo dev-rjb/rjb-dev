@@ -1,0 +1,248 @@
+<!-- <?php 
+  session_start();
+  include "db.php";
+  date_default_timezone_set("Asia/Jakarta");
+
+  if (isset($_POST['submit_input'])) {
+    $tanggal = date('Y-m-d');
+    $jam = date('H:i:s');
+    $nama = $_POST['nama'];
+    $alamat = $_POST['alamat'];
+    $Keperluan = $_POST['Keperluan'];
+    $no_plat = $_POST['no_plat'];
+    $merek_kendaraan = $_POST['merek_kendaraan'];
+    $bertemu_dengan = $_POST['bertemu_dengan'];
+    $no_hp = $_POST['no_hp'];
+    $jk = $_POST['jk'];
+    
+    $nama_file = date('YmdHis').'.jpg';
+    $direktori = 'foto/';
+    $target = $direktori.$nama_file;
+
+    // $r = move_uploaded_file($_FILES['webcam']['tmp_name'], $target);
+
+    // $poto = $_FILES['poto']['name'];
+    // $asal = $_FILES['poto']['tmp_name'];
+
+    // move_uploaded_file($asal, 'foto/' . $poto);
+
+    $s = mysqli_query($db,"INSERT INTO tamu VALUES (NULL,'$tanggal','$jam','$nama','$alamat','$no_hp','$jk','$Keperluan','$no_plat','$merek_kendaraan','$bertemu_dengan','$target')");
+
+    if ($s) {
+      echo "<script>alert('Berhasil Menginput');window.location='index2.php' </script>";
+    }else{
+      echo "<script>alert('Gagal Menginput');</script>";
+    }
+
+  }
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Buku Tamu Tels</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+  <link href='images/logo2.png' rel='shortcut icon'>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #2d9c86;">
+
+
+  <div class="container-contact100">
+    
+    <div class="wrap-contact100" style="box-shadow: 2px 5px 10px black;">
+      <div class="contact100-form-title" style="background-image: url(images/bg7.jpg); padding-top: 100px;">
+      <img src="images/logo.png" style="position: absolute; height: 50px; width: 90px; margin-top: -90px; margin-left: -280px; box-shadow: 0 2px 5px black; outline: none;">
+        <span class="contact100-form-title-1">
+          <br>
+        </span>
+
+        <span class="contact100-form-title-2">
+          <br>
+        </span>
+      </div>
+
+      <form class="contact100-form validate-form" method="POST">
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <span class="label-input100">Nama:</span>
+          <input class="input100" type="text" name="nama" placeholder="Masukkan Nama Anda...">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <span class="label-input100">Alamat:</span>
+          <textarea class="input100" name="alamat" placeholder="Alamat Anda..."></textarea>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <span class="label-input100">Keperluan:</span>
+          <input class="input100" type="text" name="Keperluan" placeholder="Keperluan Anda...">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <span class="label-input100">Plat Kendaraan:</span>
+          <input class="input100" type="text" name="no_plat" placeholder="Plat Kendaraan Anda...">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <span class="label-input100">Merk Kendaraan:</span>
+          <input class="input100" type="text" name="merek_kendaraan" placeholder="Merk Kendaraan Anda...">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <span class="label-input100">Bertemu Dengan:</span>
+          <input class="input100" type="text" name="bertemu_dengan" placeholder="Bertemu Dengan Siapa...">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Phone is required">
+          <span class="label-input100">Nomor Telpon:</span>
+          <input class="input100" type="number" name="no_hp" placeholder="Masukkan Nomor Telepon Anda...">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+          <span class="label-input100">Jenis Kelamin:</span>
+          <select class="input100" style="padding-top: 7px;" name="jk">
+            <option value="L">Laki-laki</option>
+            <option value="P">Perempuan</option>
+          </select>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <p class="label-input100">Foto</p>
+        <div id="camera">Capture</div>
+        <br>
+        <div id="webcam" style="position: absolute; margin-top: -62px; ">
+          <!-- <input type="button" class="btn btn-primary" value="Capture" onClick="preview()" name="webcam"> -->
+        </div>
+        <div id="simpan" style="display: none; position: absolute; margin-top: -62px;">
+          <!-- <input type="button" class="btn btn-danger" value="Remove" onClick="batal()"> -->
+        </div>
+
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn" disabled style="background: #5858b9;" type="submit" name="submit_input" onClick="simpan()"> 
+            <span>
+              Submit
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+            </span>
+          </button>
+          <div class="space" style="margin-top: 100px;"> </div>
+        </div>
+      </form>
+       
+    </div>
+    <div style="width: 100%; height: 20px;">
+        <a href="../index.html"><button class="btn btn-danger" style="float: left;box-shadow: 0 2px 5px black;">Home</button></a> 
+      <!-- <a href="report_excel/report_excel.php" style="color: white; text-decoration: none; float: right; background-color: blue; padding: 20px; border-radius: 4px; box-shadow: 0 2px 5px black;">Report Excel <i class="fa fa-print"></i></a> -->
+    </div>
+  </div>
+
+
+
+  <div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/daterangepicker/moment.min.js"></script>
+  <script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+  <script src="js/map-custom.js"></script>
+<!--===============================================================================================-->
+  <script src="js/main.js"></script>
+  <script src="webcam.min.js"></script>
+    <script src="webcam.js"></script>
+    <script language="Javascript">
+        // konfigursi webcam
+        Webcam.set({
+            width: 320,
+            height: 240,
+            image_format: 'jpg',
+            jpeg_quality: 100
+        });
+        Webcam.attach( '#camera' );
+ 
+        function preview() {
+            // untuk preview gambar sebelum di upload
+            Webcam.freeze();
+            // ganti display webcam menjadi none dan simpan menjadi terlihat
+            document.getElementById('webcam').style.display = 'none';
+            document.getElementById('simpan').style.display = '';
+        }
+        
+        function batal() {
+            // batal preview
+            Webcam.unfreeze();
+            
+            // ganti display webcam dan simpan seperti semula
+            document.getElementById('webcam').style.display = '';
+            document.getElementById('simpan').style.display = 'none';
+        }
+        
+        function simpan() {
+            // ambil foto
+            Webcam.snap( function(data_uri) {
+                
+                // upload foto
+                Webcam.upload( data_uri, 'kamera2.php', function(code, text) {} );
+ 
+                // tampilkan hasil gambar yang telah di ambil
+                document.getElementById('hasil').innerHTML = 
+                    '<p  style="display:none;" >Hasil : </p>' + 
+                    '<img src="'+data_uri+'" style="display:none;" />';
+                
+                Webcam.unfreeze();
+            
+                document.getElementById('webcam').style.display = '';
+                document.getElementById('simpan').style.display = 'none';
+            } );
+        }
+    </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+  </script>
+
+</body>
+</html>
